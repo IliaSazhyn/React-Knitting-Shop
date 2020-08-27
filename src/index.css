@@ -93,7 +93,6 @@ footer {
   background-color: #2196f3;
 }
 
-/* Checkout form */
 form {
   width: 100%;
 }
@@ -115,7 +114,6 @@ input {
   border: 0.1rem #c0c0c0 solid;
 }
 
-/* Orders */
 .orders {
   width: 100%;
   padding: 10px;

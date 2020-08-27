@@ -28,6 +28,9 @@ export const authFail = (error) => {
   };
 };
 
+
+console.log(`${process.env.REACT_APP_USER_TOKEN}`);
+
 export const auth = (email, password, name, isSignup) => {
   return (dispatch) => {
     dispatch(authStart());
@@ -37,11 +40,12 @@ export const auth = (email, password, name, isSignup) => {
       name: name,
       returnSecureToken: true,
     };
+  
     let url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBjw8d8yMY-hjqyGcWokzfEKXrdUJ8ljjY";
+      `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_USER_TOKEN}`;
     if (!isSignup) {
       url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBjw8d8yMY-hjqyGcWokzfEKXrdUJ8ljjY";
+        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_USER_TOKEN}`;
     }
     axios
       .post(url, authData)
