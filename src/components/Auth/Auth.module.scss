@@ -1,0 +1,28 @@
+.auth {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+@media (min-width: 600px) {
+    .auth {
+        width: 500px;
+    }
+}
+
+.authContent {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    & Button {
+        margin-right: 0.5rem;
+    }
+    & div {
+   padding: 2px;
+
+    }
+}

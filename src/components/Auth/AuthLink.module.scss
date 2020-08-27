@@ -1,0 +1,22 @@
+.AuthDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 1rem;
+}
+
+.AuthUser {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.AuthLogo {
+  width: 2em;
+  height: 2em;
+}
+
+.AuthName {
+  font-size: 0.7em;
+  margin: 5px 0;
+}

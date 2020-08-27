@@ -1,0 +1,118 @@
+.Logo {
+  height: max-content;
+  width: max-content;
+  margin-top: 20px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  &_presentation {
+    width: 100%;
+    height: auto;
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    color: #fff;
+    text-align: center;
+  }
+  & h1 {
+    position: relative;
+    font-size: 2.2rem;
+    margin: 0;
+    height: max-content;
+  }
+  & p {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border: 2px solid transparent;
+  }
+  &:hover::before {
+    animation: animate 1s linear forwards;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 0;
+    height: 0;
+    background: transparent;
+    border: 2px solid transparent;
+  }
+  &:hover::after {
+    animation: animates 1s linear forwards;
+  }
+}
+
+// Keyframes Logo
+
+@keyframes animate {
+  0% {
+    width: 0;
+    height: 0;
+    border-top-color: black;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  50% {
+    width: 100%;
+    height: 0;
+    border-top-color: black;
+    border-right-color: black;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+
+  100% {
+    width: 100%;
+    height: 100%;
+    border-top-color: black;
+    border-right-color: black;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+}
+
+@keyframes animates {
+  0% {
+    width: 0;
+    height: 0;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: black;
+  }
+
+  50% {
+    width: 0;
+    height: 100%;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: black;
+    border-left-color: black;
+  }
+
+  100% {
+    width: 100%;
+    height: 100%;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: black;
+    border-left-color: black;
+  }
+}

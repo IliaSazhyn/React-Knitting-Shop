@@ -1,0 +1,25 @@
+.header {
+  padding: 0 2rem;
+
+  &_leftLinks a {
+    padding-right: 2rem;
+  }
+  &_navLinks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.cart {
+  padding: 0 3rem;
+  display: flex;
+
+  &_header_icon {
+    color: white;
+    
+    &:hover {
+      color: #2196f3;
+    }
+  }
+}
