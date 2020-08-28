@@ -30,7 +30,7 @@ class Cart extends Component {
       warehouse: "",
       phone: "",
       comment: "",
-      payment: "",
+      payment: "Оплата наличными",
       date: setNewDate,
       showCheckout: false,
       orderSuccess: false,
@@ -62,7 +62,7 @@ class Cart extends Component {
       cartItems: this.props.cartItems,
       total: this.props.cartItems.reduce((a, c) => a + c.price * c.count, 0),
     };
-    this.props.createOrder(order);
+    this.props.createOrder(order, this.props.token);
   };
 
   render() {
@@ -251,6 +251,7 @@ export default withRouter(
     (state) => ({
       order: state.order.order,
       cartItems: state.cart.cartItems,
+      token: state.auth.token,
       isAuthenticated: state.auth.token !== null,
     }),
     { removeFromCart, createOrder, clearOrder, clearCart }

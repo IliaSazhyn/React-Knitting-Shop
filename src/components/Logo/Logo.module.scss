@@ -9,6 +9,7 @@
   align-items: center;
   position: absolute;
   &_presentation {
+    min-width: max-content;
     width: 100%;
     height: auto;
     z-index: 999;
@@ -115,4 +116,12 @@
     border-bottom-color: black;
     border-left-color: black;
   }
+}
+
+// Media queries
+
+@media only screen and (max-width: 468px) {
+.Logo_presentation {
+  font-size: 1.5rem;
+}
 }

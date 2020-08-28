@@ -79,7 +79,7 @@ class Filter extends Component {
             >
               <option value="all">Все</option>
               <option value="accessories">Аксессуары</option>
-              <option value="courses">Курсы вязания</option>
+              <option value="chat">Курсы вязания</option>
             </select>
           ) : (
             <div

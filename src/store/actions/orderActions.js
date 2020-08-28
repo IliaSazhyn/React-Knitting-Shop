@@ -6,10 +6,10 @@ import {
   FETCH_ORDERS,
 } from "../actions/actionTypes";
 
-export const createOrder = (order) => (dispatch) => {
-  axios
-    .post("/orders.json", order)
+export const createOrder = (order, token) => (dispatch) => {
 
+  axios
+    .post("/orders.json?auth=" + token, order)
     .then((data) => {
       dispatch({ type: CREATE_ORDER, payload: data });
       localStorage.clear("cartItems");
