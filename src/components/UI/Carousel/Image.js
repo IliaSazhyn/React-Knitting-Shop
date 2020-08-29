@@ -15,7 +15,7 @@ class Image extends Component {
   };
   render() {
     const imgs = Object.values(this.props.img.img);
-    console.log(imgs);
+    // console.log(imgs);
     let list = [];
     imgs.forEach((item, key) => {
       list.push(

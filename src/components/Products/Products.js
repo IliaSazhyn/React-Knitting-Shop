@@ -111,6 +111,7 @@ class Products extends Component {
     );
   }
 }
+Modal.setAppElement('#root');
 
 export default withRouter(
   connect((state) => ({ products: state.products.filteredItems }), {

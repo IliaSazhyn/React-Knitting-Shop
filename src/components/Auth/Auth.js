@@ -132,7 +132,7 @@ class Auth extends Component {
               <input
                 type="text"
                 name="name"
-                value={this.state.input.name}
+                value={this.state.input.name || ''}
                 onChange={this.handleChange}
                 placeholder="Введите имя"
                 id="name"
@@ -146,7 +146,7 @@ class Auth extends Component {
               <input
                 type="text"
                 name="email"
-                value={this.state.input.email}
+                value={this.state.input.email || ''}
                 onChange={this.handleChange}
                 placeholder="Введите е-мейл"
                 id="email"
@@ -161,7 +161,7 @@ class Auth extends Component {
                 type="password"
                 autoComplete="on"
                 name="password"
-                value={this.state.input.password}
+                value={this.state.input.password || ''}
                 onChange={this.handleChange}
                 placeholder="Введите пароль"
                 id="password"
@@ -175,7 +175,7 @@ class Auth extends Component {
                 type="password"
                 name="confirm_password"
                 autoComplete="on"
-                value={this.state.input.confirm_password}
+                value={this.state.input.confirm_password || ''}
                 onChange={this.handleChange}
                 placeholder="Повторите пароль"
                 id="confirm_password"
