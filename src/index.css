@@ -38,8 +38,8 @@ a {
 
 a:hover {
   color: #2196f3;
+  transition: 0.3s;
 }
-
 header {
   grid-area: header;
   background-color: #000;
@@ -92,6 +92,11 @@ footer {
 .button.primary {
   background-color: #2196f3;
 }
+.button.button.primary:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.54);
+  box-shadow: 0 8px 6px -6px black;
+  transition: 0.3s;
+} 
 
 form {
   width: 100%;

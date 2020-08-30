@@ -1,4 +1,5 @@
 import React from "react";
+import Meta from "./containers/Meta/Meta";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "./store/actions/authActions";
@@ -19,6 +20,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="grid-container">
+        <Meta />
         <Logo />
         <Header />
         <main>
