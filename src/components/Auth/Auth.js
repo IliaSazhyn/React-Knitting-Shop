@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as actions from "../../store/actions/authActions";
 
+import Tooltip from '@material-ui/core/Tooltip';
+import { withStyles } from '@material-ui/core/styles';
+
 import classes from "./Auth.module.scss";
 
 class Auth extends Component {
@@ -117,10 +120,20 @@ class Auth extends Component {
   }
 
   render() {
+
     let authRedirect = null;
     if (this.props.isAuthenticated) {
       authRedirect = <Redirect to={this.props.authRedirectPath} />;
     }
+
+    const LightTooltip = withStyles((theme) => ({
+      tooltip: {
+        color: 'white',
+        boxShadow: theme.shadows[1],
+        fontSize: 10,
+      },
+    }))(Tooltip);
+
     return (
       <div className={classes.auth}>
         <div className={classes.authContent}>
@@ -186,6 +199,7 @@ class Auth extends Component {
               </div>
             </div>
 
+ <LightTooltip title="Зарегистрировать нового пользователя" placement="top">
             <Button
               className={classes.authContentButton}
               onClick={this.switchSignUpHandler}
@@ -194,6 +208,9 @@ class Auth extends Component {
             >
               ЗАРЕГИСТРИРОВАТЬСЯ
             </Button>
+            </LightTooltip>
+
+            <LightTooltip title="Войти, используя свои данные" placement="top">
             <Button
               className={classes.authContentButton}
               onClick={this.switchSignInHandler}
@@ -202,6 +219,9 @@ class Auth extends Component {
             >
               ВОЙТИ
             </Button>
+            </LightTooltip>
+
+            <LightTooltip title="Подтвердить" placement="top">
             <Button
               className={classes.authContentButton}
               type="submit"
@@ -211,6 +231,8 @@ class Auth extends Component {
             >
               Принять
             </Button>
+            </LightTooltip>
+
           </form>
         </div>
       </div>
