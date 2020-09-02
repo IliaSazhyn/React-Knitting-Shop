@@ -1,8 +1,10 @@
 .header {
   padding: 0 2rem;
-
-  &_leftLinks a {
-    padding-right: 2rem;
+  &_leftLinks {
+    font-weight: bold;
+    & a {
+      padding-right: 2rem;
+    }
   }
   &_navLinks {
     display: flex;
@@ -20,6 +22,7 @@
     
     &:hover {
       color: #2196f3;
+      transition: 0.3s;
     }
   }
 }

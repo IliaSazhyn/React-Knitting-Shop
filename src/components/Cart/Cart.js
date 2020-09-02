@@ -30,7 +30,7 @@ class Cart extends Component {
       warehouse: "",
       phone: "",
       comment: "",
-      payment: "",
+      payment: "Оплата наличными",
       date: setNewDate,
       showCheckout: false,
       orderSuccess: false,
@@ -62,7 +62,7 @@ class Cart extends Component {
       cartItems: this.props.cartItems,
       total: this.props.cartItems.reduce((a, c) => a + c.price * c.count, 0),
     };
-    this.props.createOrder(order);
+    this.props.createOrder(order, this.props.token);
   };
 
   render() {
@@ -130,31 +130,30 @@ class Cart extends Component {
                   )}
                 </div>
                 {this.props.isAuthenticated ? (
-                                  <button
-                                  disabled={cartItems.length === 0}
-                                  onClick={() => {
-                                    this.setState({ showCheckout: true });
-                                  }}
-                                  className="button primary"
-                                >
-                                  Оформить заказ
-                                </button>
+                  <button
+                    disabled={cartItems.length === 0}
+                    onClick={() => {
+                      this.setState({ showCheckout: true });
+                    }}
+                    className="button primary"
+                  >
+                    Оформить заказ
+                  </button>
                 ) : (
                   <button
-                  disabled={cartItems.length === 0}
-                  onClick={this.authRedirect}
-                  className="button primary"
-                >
-                  Оформить заказ
-                </button>
+                    disabled={cartItems.length === 0}
+                    onClick={this.authRedirect}
+                    className="button primary"
+                  >
+                    Оформить заказ
+                  </button>
                 )}
-
               </div>
             </div>
-{/* Order Summary */}
+            {/* Order Summary */}
             {this.state.showCheckout && (
               <div className="cart">
-                <form onSubmit={this.createOrder}>
+                <form onSubmit={this.createOrder} className="main">
                   <ul className="form-container">
                     <li>
                       <label>Email</label>
@@ -246,11 +245,14 @@ class Cart extends Component {
   }
 }
 
+Modal.setAppElement('#root');
+
 export default withRouter(
   connect(
     (state) => ({
       order: state.order.order,
       cartItems: state.cart.cartItems,
+      token: state.auth.token,
       isAuthenticated: state.auth.token !== null,
     }),
     { removeFromCart, createOrder, clearOrder, clearCart }

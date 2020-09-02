@@ -4,6 +4,7 @@ import Responsive from "react-responsive-decorator";
 import All from "../../assets/images/all.jpg";
 import Accessories from "../../assets/images/accessories.jpg";
 import Chat from "../../assets/images/chat.jpg";
+import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import { connect } from "react-redux";
 import {
   filterProducts,
@@ -79,9 +80,10 @@ class Filter extends Component {
             >
               <option value="all">Все</option>
               <option value="accessories">Аксессуары</option>
-              <option value="courses">Курсы вязания</option>
+              <option value="chat">Курсы вязания</option>
             </select>
           ) : (
+            <LazyLoadComponent>
             <div
               className={classes.category_choice}
               value={this.props.category}
@@ -114,6 +116,7 @@ class Filter extends Component {
                 {sectionChatText}
               </button>
             </div>
+            </LazyLoadComponent>
           )}
         </div>
       </div>

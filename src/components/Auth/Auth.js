@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as actions from "../../store/actions/authActions";
 
+import Tooltip from '@material-ui/core/Tooltip';
+import { withStyles } from '@material-ui/core/styles';
+
 import classes from "./Auth.module.scss";
 
 class Auth extends Component {
@@ -117,10 +120,20 @@ class Auth extends Component {
   }
 
   render() {
+
     let authRedirect = null;
     if (this.props.isAuthenticated) {
       authRedirect = <Redirect to={this.props.authRedirectPath} />;
     }
+
+    const LightTooltip = withStyles((theme) => ({
+      tooltip: {
+        color: 'white',
+        boxShadow: theme.shadows[1],
+        fontSize: 10,
+      },
+    }))(Tooltip);
+
     return (
       <div className={classes.auth}>
         <div className={classes.authContent}>
@@ -132,7 +145,7 @@ class Auth extends Component {
               <input
                 type="text"
                 name="name"
-                value={this.state.input.name}
+                value={this.state.input.name || ''}
                 onChange={this.handleChange}
                 placeholder="Введите имя"
                 id="name"
@@ -146,7 +159,7 @@ class Auth extends Component {
               <input
                 type="text"
                 name="email"
-                value={this.state.input.email}
+                value={this.state.input.email || ''}
                 onChange={this.handleChange}
                 placeholder="Введите е-мейл"
                 id="email"
@@ -161,7 +174,7 @@ class Auth extends Component {
                 type="password"
                 autoComplete="on"
                 name="password"
-                value={this.state.input.password}
+                value={this.state.input.password || ''}
                 onChange={this.handleChange}
                 placeholder="Введите пароль"
                 id="password"
@@ -175,7 +188,7 @@ class Auth extends Component {
                 type="password"
                 name="confirm_password"
                 autoComplete="on"
-                value={this.state.input.confirm_password}
+                value={this.state.input.confirm_password || ''}
                 onChange={this.handleChange}
                 placeholder="Повторите пароль"
                 id="confirm_password"
@@ -186,6 +199,7 @@ class Auth extends Component {
               </div>
             </div>
 
+ <LightTooltip title="Зарегистрировать нового пользователя" placement="top">
             <Button
               className={classes.authContentButton}
               onClick={this.switchSignUpHandler}
@@ -194,6 +208,9 @@ class Auth extends Component {
             >
               ЗАРЕГИСТРИРОВАТЬСЯ
             </Button>
+            </LightTooltip>
+
+            <LightTooltip title="Войти, используя свои данные" placement="top">
             <Button
               className={classes.authContentButton}
               onClick={this.switchSignInHandler}
@@ -202,6 +219,9 @@ class Auth extends Component {
             >
               ВОЙТИ
             </Button>
+            </LightTooltip>
+
+            <LightTooltip title="Подтвердить" placement="top">
             <Button
               className={classes.authContentButton}
               type="submit"
@@ -211,6 +231,8 @@ class Auth extends Component {
             >
               Принять
             </Button>
+            </LightTooltip>
+
           </form>
         </div>
       </div>

@@ -49,3 +49,20 @@
   clear: both;
   display: table;
 }
+
+// Media queries
+
+@media only screen and (max-width: 550px) {
+.filter {
+  flex-direction: column;
+    align-items: flex-start;
+    & div {
+      padding: 0.5rem;
+    }
+}
+.filter_size {
+  flex-direction: row;
+  width: auto;
+  align-items: flex-start;
+}
+  }

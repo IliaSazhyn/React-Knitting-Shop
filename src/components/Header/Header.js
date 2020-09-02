@@ -17,6 +17,7 @@ class Header extends Component {
         top: 15,
         fontSize: '1.2rem',
         padding: '0 4px',
+        zIndex: '0',
       },
     }))(Badge);
     return (
@@ -42,7 +43,7 @@ class Header extends Component {
            
           ) : (
             <div className={classes.cart}>
-               <StyledBadge badgeContent={this.props.cartItems.length} color="default" >
+               <StyledBadge badgeContent={this.props.cartItems.length} color="default">
               <ShoppingCartRoundedIcon
                 className={classes.cart_header_icon}
                 fontSize="large"

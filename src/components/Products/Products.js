@@ -81,7 +81,9 @@ class Products extends Component {
                     <strong>{product.title}</strong>
                   </p>
                   <p>{product.description}</p>
+                  <p>{product.set}</p>
                   <p>{product.material}</p>
+                  <p>{product.size}</p>
                   <p>{product.comment}</p>
                   <div className={classes.product_details_modal}>
                     <Image
@@ -111,6 +113,7 @@ class Products extends Component {
     );
   }
 }
+Modal.setAppElement('#root');
 
 export default withRouter(
   connect((state) => ({ products: state.products.filteredItems }), {

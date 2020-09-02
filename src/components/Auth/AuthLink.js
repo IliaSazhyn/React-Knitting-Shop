@@ -19,7 +19,7 @@ class AuthLink extends Component {
             </div>
           </Link>
         ) : (
-          <Link to="/auth">Авторизация</Link>
+          <Link to="/auth" className={classes.RightLink}>Авторизация</Link>
         )}
       </div>
     );
