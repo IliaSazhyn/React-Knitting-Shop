@@ -1,6 +1,8 @@
 import React from "react";
 import Main from "../assets/images/main.jpg";
 import Container from "@material-ui/core/Container";
+import { LazyLoadImage  } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import classes from "./MainScreen.module.scss";
 
@@ -8,7 +10,10 @@ const MainScreen = () => {
   return (
    
     <div className={classes.main}>
-      <img src={Main} alt="MainImage" />
+  <LazyLoadImage
+    alt="MainImage"
+    effect="blur"
+    src={Main} />
       <Container fixed> 
       <div className={classes.main_content}>
         
