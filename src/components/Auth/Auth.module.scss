@@ -19,10 +19,12 @@
     flex-direction: column;
     padding: 2rem;
     & Button {
-        margin: 0 0.5rem 0.5rem 0;
+        margin: 1rem 0.5rem 0.5rem 0.5rem;
     }
     & div {
    padding: 2px;
-
+    }
+    &__desc {
+        font-size: 1rem;
     }
 }

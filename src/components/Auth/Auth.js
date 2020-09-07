@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as actions from "../../store/actions/authActions";
 
-import Tooltip from '@material-ui/core/Tooltip';
-import { withStyles } from '@material-ui/core/styles';
+import Tooltip from "@material-ui/core/Tooltip";
+import { withStyles } from "@material-ui/core/styles";
 
 import classes from "./Auth.module.scss";
 
@@ -58,10 +58,9 @@ class Auth extends Component {
   }
 
   switchSignUpHandler = () => {
-    this.setState({ isSignup: true });
-  };
-  switchSignInHandler = () => {
-    this.setState({ isSignup: false });
+    this.setState((prevState) => {
+      return { isSignup: !prevState.isSignup };
+    });
   };
 
   validate() {
@@ -71,12 +70,12 @@ class Auth extends Component {
 
     if (!input["name"]) {
       isValid = false;
-      errors["name"] = "Please enter your name.";
+      errors["name"] = "Введите имя";
     }
 
     if (!input["email"]) {
       isValid = false;
-      errors["email"] = "Please enter your email Address.";
+      errors["email"] = "Введите Email";
     }
 
     if (typeof input["email"] !== "undefined") {
@@ -99,7 +98,11 @@ class Auth extends Component {
       errors["confirm_password"] = "Подтвердите пароль";
     }
 
-    if (input["password"].length <= 5) {
+    if (typeof input["password"] === "undefined") {
+      isValid = false;
+      }
+
+    if (typeof input["password"] !== "undefined" && input["password"].length <= 5) {
       isValid = false;
       errors["confirm_password"] = "Пароль слишком короткий";
     }
@@ -120,7 +123,6 @@ class Auth extends Component {
   }
 
   render() {
-
     let authRedirect = null;
     if (this.props.isAuthenticated) {
       authRedirect = <Redirect to={this.props.authRedirectPath} />;
@@ -128,7 +130,7 @@ class Auth extends Component {
 
     const LightTooltip = withStyles((theme) => ({
       tooltip: {
-        color: 'white',
+        color: "white",
         boxShadow: theme.shadows[1],
         fontSize: 10,
       },
@@ -138,14 +140,14 @@ class Auth extends Component {
       <div className={classes.auth}>
         <div className={classes.authContent}>
           {authRedirect}
-          <h5>{this.state.isSignup ? "ЗАРЕГИСТРИРОВАТЬСЯ" : "ВОЙТИ"}</h5>
+          <h5>{this.state.isSignup ? "РЕГИСТРАЦИЯ" : "ВОЙТИ"}</h5>
           <form onSubmit={this.handleSubmit}>
             <div>
               <label>Имя: </label>
               <input
                 type="text"
                 name="name"
-                value={this.state.input.name || ''}
+                value={this.state.input.name || ""}
                 onChange={this.handleChange}
                 placeholder="Введите имя"
                 id="name"
@@ -155,11 +157,11 @@ class Auth extends Component {
             </div>
 
             <div>
-              <label>Почтовый адрес: </label>
+              <label>Email: </label>
               <input
                 type="text"
                 name="email"
-                value={this.state.input.email || ''}
+                value={this.state.input.email || ""}
                 onChange={this.handleChange}
                 placeholder="Введите е-мейл"
                 id="email"
@@ -174,7 +176,7 @@ class Auth extends Component {
                 type="password"
                 autoComplete="on"
                 name="password"
-                value={this.state.input.password || ''}
+                value={this.state.input.password || ""}
                 onChange={this.handleChange}
                 placeholder="Введите пароль"
                 id="password"
@@ -188,7 +190,7 @@ class Auth extends Component {
                 type="password"
                 name="confirm_password"
                 autoComplete="on"
-                value={this.state.input.confirm_password || ''}
+                value={this.state.input.confirm_password || ""}
                 onChange={this.handleChange}
                 placeholder="Повторите пароль"
                 id="confirm_password"
@@ -199,40 +201,42 @@ class Auth extends Component {
               </div>
             </div>
 
- <LightTooltip title="Зарегистрировать нового пользователя" placement="top">
-            <Button
-              className={classes.authContentButton}
-              onClick={this.switchSignUpHandler}
-              variant="contained"
-              color="primary"
-            >
-              ЗАРЕГИСТРИРОВАТЬСЯ
-            </Button>
-            </LightTooltip>
-
-            <LightTooltip title="Войти, используя свои данные" placement="top">
-            <Button
-              className={classes.authContentButton}
-              onClick={this.switchSignInHandler}
-              variant="contained"
-              color="primary"
-            >
-              ВОЙТИ
-            </Button>
-            </LightTooltip>
-
             <LightTooltip title="Подтвердить" placement="top">
-            <Button
-              className={classes.authContentButton}
-              type="submit"
-              value="Submit"
-              variant="contained"
-              color="secondary"
-            >
-              Принять
-            </Button>
+              <Button
+                className={classes.authContentButton}
+                type="submit"
+                value="Submit"
+                variant="contained"
+                color="secondary"
+              >
+                {this.state.isSignup ? "ЗАРЕГИСТРИРОВАТЬСЯ" : "ВОЙТИ"}
+              </Button>
             </LightTooltip>
 
+            <div>
+              <p className={classes.authContent__desc}>
+                {!this.state.isSignup
+                  ? "Еще не регистрировались?"
+                  : "Уже зарегистрированы?"}
+              </p>
+              <LightTooltip
+                title={
+                  !this.state.isSignup
+                    ? "Зарегистрировать нового пользователя"
+                    : "Войти, используя свои данные"
+                }
+                placement="top"
+              >
+                <Button
+                  className={classes.authContentButton}
+                  onClick={this.switchSignUpHandler}
+                >
+                  {!this.state.isSignup
+                    ? "Зарегистрировать пользователя"
+                    : "Войти"}
+                </Button>
+              </LightTooltip>
+            </div>
           </form>
         </div>
       </div>
