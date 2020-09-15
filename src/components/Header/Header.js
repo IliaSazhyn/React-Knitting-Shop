@@ -4,6 +4,7 @@ import Badge from '@material-ui/core/Badge';
 import ShoppingCartRoundedIcon from "@material-ui/icons/ShoppingCartRounded";
 import { withStyles } from '@material-ui/core/styles';
 import AuthLink from "../../components/Auth/AuthLink";
+import Drawer from "./DrawerToggle";
 import { connect } from "react-redux";
 
 import classes from "./Header.module.scss";
@@ -11,6 +12,7 @@ import classes from "./Header.module.scss";
 class Header extends Component {
   
   render() {
+
     const StyledBadge = withStyles((theme) => ({
       badge: {
         right: -3,
@@ -20,11 +22,12 @@ class Header extends Component {
         zIndex: '0',
       },
     }))(Badge);
+
     return (
       <header className={classes.header}>
+        
         <div className={classes.header_leftLinks}>
-        <Link to="/" className={classes.header_active}>Главная</Link>
-        <Link to="/products" className={classes.header_active}>Каталог</Link>
+        <Drawer/>
         </div>
     
         <div className={classes.header_navLinks}>

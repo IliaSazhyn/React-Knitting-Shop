@@ -1,4 +1,5 @@
 import React from "react";
+import Icon from "../../assets/images/logo.png"
 import { Helmet } from "react-helmet";
 
 function Meta() {
@@ -20,12 +21,16 @@ function Meta() {
         />
         <meta
           itemprop="image"
-          content="https://yamarsana-shop.web.app/static/media/logo.2eb0ef50.png"
+          content={Icon}
         />
 
         {/* <!-- Facebook Meta Tags --> */}
         <meta property="og:url" content="https://yamarsana-shop.web.app" />
         <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content={Icon}
+        />
         <meta property="og:title" content="Yamarsana" />
         <meta
           property="og:description"
@@ -33,7 +38,7 @@ function Meta() {
         />
         <meta
           property="og:image"
-          content="https://yamarsana-shop.web.app/static/media/logo.2eb0ef50.png"
+          content={Icon}
         />
         {/* <!-- Twitter Meta Tags --> */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -44,7 +49,7 @@ function Meta() {
         />
         <meta
           name="twitter:image"
-          content="https://yamarsana-shop.web.app/static/media/logo.2eb0ef50.png"
+          content={Icon}
         />
       </Helmet>
     </>

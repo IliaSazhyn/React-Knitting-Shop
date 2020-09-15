@@ -68,7 +68,7 @@ function FooterContacts() {
           <Box display="flex" alignItems="center" className={classes.root}>
             <YouTubeIcon fontSize="large" />{" "}
             <a href="https://www.youtube.com/channel/UCrdS5dY3hyRMSZX-k-cFuSQ">
-              <p>https://www.youtube.com/channel/UCrdS5dY3hyRMSZX-k-cFuSQ</p>
+              <p>https://www.youtube.com/</p>
             </a>
           </Box>
         </Grid>
