@@ -43,9 +43,9 @@ export const sortProducts = (filteredProducts, sort) => (dispatch) => {
         ? a.price > b.price
           ? 1
           : -1
-        : a.price > b.price
-        ? -1
-        : 1
+        : a.price < b.price
+        ? 1
+        : -1
     );
   }
 

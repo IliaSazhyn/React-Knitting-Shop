@@ -1,5 +1,7 @@
+@import "../../../assets/scss/mixin.scss";
+
 .carousel_img {
-  width: 400px;
+  width: px-to-rem(800);
   height: auto;
   justify-content: center;
   background-position: center;
@@ -11,7 +13,7 @@
     0px 2px 2px 0px rgba(0, 0, 0, 0.22), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
 }
 .carousel {
-  width: 400px;
+  width: px-to-rem(800);
 }
 
 @media only screen and (max-width: 868px) {

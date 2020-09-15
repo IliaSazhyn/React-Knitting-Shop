@@ -63,7 +63,7 @@ class Filter extends Component {
               )
             }
           >
-            <option>Новые</option>
+            <option value="latest">Новые</option>
             <option value="lowest">Сначала дешевле</option>
             <option value="highest">Сначала дороже</option>
           </select>

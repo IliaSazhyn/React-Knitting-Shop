@@ -1,15 +1,16 @@
+@import "../../assets/scss/mixin.scss";
 .auth {
-    margin: 20px auto;
+    margin: px-to-rem(20) auto;
     width: 80%;
     text-align: center;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
-    padding: 10px;
+    padding: px-to-rem(10);
     box-sizing: border-box;
 }
 @media (min-width: 600px) {
     .auth {
-        width: 500px;
+        width: px-to-rem(500);
     }
 }
 
@@ -22,7 +23,7 @@
         margin: 1rem 0.5rem 0.5rem 0.5rem;
     }
     & div {
-   padding: 2px;
+   padding: px-to-rem(2);
     }
     &__desc {
         font-size: 1rem;
